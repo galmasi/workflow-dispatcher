@@ -6,6 +6,10 @@ jobs:
     steps:
       - uses: actions/github-script@v6
         with:
-          github-token: ${{ secrets.PAT_TOKEN }}
           script: |
-            echo "bubu"
+            github.rest.actions.createWorkflowDispatch({
+              owner: galmasi,
+              repo: workflow-executor,
+              workflow_id: 'executortest.yml',
+              ref: 'main',
+            })
