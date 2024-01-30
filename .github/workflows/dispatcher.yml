@@ -2,13 +2,10 @@ name: dispatcher
 on: [push]
 jobs:
   dispatch:
-  - uses: actions/github-script@v6
-    with:
-      github-token: ${{ secrets.PAT_TOKEN }}
-      script: |
-        await github.rest.actions.createWorkflowDispatch({
-          owner: 'galmasi',
-          repo: 'workflow-executor',
-          workflow_id: 'executortest.yml',
-          ref: 'master'
-        })
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          github-token: ${{ secrets.PAT_TOKEN }}
+          script: |
+            echo "bubu"
