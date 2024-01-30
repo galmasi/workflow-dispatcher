@@ -10,6 +10,6 @@ jobs:
             github.rest.actions.createWorkflowDispatch({
               owner: 'galmasi',
               repo: 'workflow-executor',
-              workflow_id: 'executortest.yml',
-              ref: 'main',
+              workflow_id: 'executortest',
+              ref: 'main'
             })
