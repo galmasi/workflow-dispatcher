@@ -1,8 +1,9 @@
+name: dispatcher
 on: [push]
 jobs:
   dispatch:
-    runs-on: ubuntu-latest
-    - uses: actions/github-script@v6
+    - name: Deploy remote
+      uses: actions/github-script@v6
       with:
         github-token: ${{ secrets.PAT_TOKEN }}
         script: |
