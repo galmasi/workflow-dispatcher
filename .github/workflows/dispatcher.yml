@@ -9,7 +9,19 @@ jobs:
           script: |
             github.rest.actions.createWorkflowDispatch({
               owner: context.repo.owner,
+              repo: 'workflow-executor',
+              workflow_id: 84264502,
+              ref: 'main'
+            })
+  dispatch2:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/github-script@v6
+        with:
+          script: |
+            github.rest.actions.createWorkflowDispatch({
+              owner: context.repo.owner,
               repo: 'workflow-dispatcher',
-              workflow_id: 'executortest.yaml',
+              workflow_id: 'executortest.yml',
               ref: 'main'
             })
