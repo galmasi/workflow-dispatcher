@@ -1,8 +1,7 @@
 name: fork_test
 
-on:
-  pull_request_target:
-  pull:
+on: [push, pull_request_target]
+
 
 jobs:
   test1:
