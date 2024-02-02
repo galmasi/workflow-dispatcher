@@ -1,19 +1,33 @@
 name: dispatcher
 on: [push]
 jobs:
-  dispatch:
+  dispatch1_remote:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/github-script@v6
         with:
+          github-token: ${{secrets.GITHUB_TOKEN}}
           script: |
             github.rest.actions.createWorkflowDispatch({
               owner: context.repo.owner,
               repo: 'workflow-executor',
-              workflow_id: 84264502,
+              workflow_id: 'executortest.yml',
               ref: 'main'
             })
-  dispatch2:
+  dispatch2_remote:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/github-script@v6
+        with:
+          github-token: ${{secrets.GEORGE_PAT}}
+          script: |
+            github.rest.actions.createWorkflowDispatch({
+              owner: context.repo.owner,
+              repo: 'workflow-executor',
+              workflow_id: 'executortest.yml',
+              ref: 'main'
+            })
+  dispatch3_local:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/github-script@v6
