@@ -1,0 +1,19 @@
+name: fork_test
+
+on:
+  pull_request_target:
+  pull:
+
+jobs:
+  test1:
+    runs-on: ubuntu-latest:
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          ref: ${{github.event.pull_request.head.ref}}
+          repository: ${{github.event.pull_request.head.repo.full_name}}
+          token: ${{github.token}}
+       - name: dump README
+         run: |
+           cat README
+           
