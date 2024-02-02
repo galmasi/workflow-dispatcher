@@ -16,4 +16,4 @@ jobs:
         token: ${{github.token}}
     - name: bla2
       run: |
-        cat README
+        cat README.md
